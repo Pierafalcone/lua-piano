@@ -31,30 +31,10 @@ function love.load()
     end
 end
 
-function love.update(dt)
-   mario.update(dt)
-end
-
 function play_key(note)
     source = love.audio.newSource(note..".mp3", "static")
     love.audio.play(source)
     --love.graphics.draw(resources.mario, math.random(0, 500), math.random(0, 500))
-end
-
-function love.update(dt)
-    for key, note in pairs(keys) do
-        if key_pressed[key] == true then
-            play_key(note)    
-            -- this avoids the keys repetition
-            key_pressed[key] = false 
-        end
-    end
-end
-
-function love.draw(dt)
-    love.graphics.setBackgroundColor(color)
-    mario.draw()
-    keyboard.draw()
 end
 
 function love.keypressed(key)
@@ -64,4 +44,21 @@ end
 
 function love.keyreleased(key)
     key_pressed[key] = false
- end
+end
+
+ function love.update(dt)
+    mario.update(dt)
+    for key, note in pairs(keys) do
+        if key_pressed[key] == true then
+            play_key(note)    
+            -- this avoids the keys repetition
+            key_pressed[key] = false 
+         end
+    end
+end
+ 
+ function love.draw(dt)
+    love.graphics.setBackgroundColor(color)
+    mario.draw()
+    keyboard.draw()
+end
