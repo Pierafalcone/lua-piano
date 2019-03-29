@@ -1,14 +1,24 @@
 local keyboard = {}
 
-
 function keyboard.draw(dt)
-    love.graphics.rectangle("fill", 30, 600, 50, 160)
-    love.graphics.rectangle("fill", 100, 600, 50, 160)
-    love.graphics.rectangle("fill", 170, 600, 50, 160)
-    love.graphics.rectangle("fill", 240, 600, 50, 160)
-    love.graphics.rectangle("fill", 310, 600, 50, 160)
-    love.graphics.rectangle("fill", 380, 600, 50, 160)
-    love.graphics.rectangle("fill", 720, 600, 50, 160)
+    -- key options
+    local key = {}
+    key.width = 50
+    key.height = 160
+    key.offset = 10
+    -- board options
+    local board = {}
+    board.start_x = 30
+    board.start_y = 600
+    -- draw keys
+    for i = 1, 7 do
+        love.graphics.rectangle(
+            "fill", 
+            board.start_x + (key.width + key.offset) * i, 
+            board.start_y, 
+            key.width, 
+            key.height)
+    end
 end
 
 return keyboard
