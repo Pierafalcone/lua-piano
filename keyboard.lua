@@ -36,14 +36,18 @@ function keyboard.draw(dt)
     board.start_x = 0
     board.start_y = 450
     -- draw white keys
-    for i = 1, 14 do
+    for i = 1, 14 do 
+
+        if i > 4 and i < 13 then
+            set_color_based_on_key_pressed(i-4, WHITE)
+        end
+
         love.graphics.rectangle(
             "fill", 
             board.start_x + (white_key.width) * i, 
             board.start_y, 
             white_key.width, 
             white_key.height)
-        
         love.graphics.setColor(0, 0 ,0)
         love.graphics.rectangle(
             "line", 
@@ -51,7 +55,7 @@ function keyboard.draw(dt)
             board.start_y, 
             white_key.width, 
             white_key.height)
-        love.graphics.setColor(1, 1 ,1, 1)
+        love.graphics.setColor(1, 1 ,1, 1)  
     end
     -- draw text over white keys
     white_key.text_x = 21 + (white_key.width * 4)
