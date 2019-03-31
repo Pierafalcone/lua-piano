@@ -2,20 +2,26 @@
 local mario = require("mario")
 local keyboard = require("keyboard")
 
-keys = {}
-keys.a = "do"
-keys.s = "re"
-keys.d = "mi"
-keys.f = "fa"        
-keys.g = "sol"
-keys.h = "la"
-keys.j = "si"
-keys.k = "doa"
-keys.w = "C#3"
-keys.e = "D#3"
-keys.t = "F#3"
-keys.y = "G#3"
-keys.u = "A#3"
+keys = { "a", "s", "d", "f", "g", "h", "j", "k", "w", "e", "t", "y", "u" }
+
+for key, value in pairs(keys) do
+    keys[value] = {}
+    keys[value].pressed = false
+end
+
+keys.a.note = "do"
+keys.s.note = "re"
+keys.d.note = "mi"
+keys.f.note = "fa"        
+keys.g.note = "sol"
+keys.h.note = "la"
+keys.j.note = "si"
+keys.k.note = "doa"
+keys.w.note = "C#3"
+keys.e.note = "D#3"
+keys.t.note = "F#3"
+keys.y.note = "G#3"
+keys.u.note = "A#3"
 
 key_pressed = {}
 
@@ -30,10 +36,6 @@ success = love.window.setMode(800, 800, flags)
 function love.load()
     resources.mario = love.graphics.newImage("mario.png")
     love.keyboard.setKeyRepeat(false)
-    -- set default key state to false
-    for key, value in pairs(keys) do
-        key_pressed[key] = false
-    end
 end
 
 function play_key(note)   
@@ -43,21 +45,27 @@ end
 
 function love.keypressed(key)
     color = { math.random(255) / 255, math.random(255) / 255, math.random(255) / 255 }
-    key_pressed[key] = true
+    -- if key is valid
+    if keys[key] ~= nil then
+        keys[key].pressed = true
+    end
 end
 
 function love.keyreleased(key)
-    key_pressed[key] = false
+    -- if key is valid
+    if keys[key] ~= nil then
+        keys[key].pressed = false
+    end
 end
 
  function love.update(dt)
     mario.update(dt)
     -- checks if a key is pressed and plays a note
     for key, note in pairs(keys) do
-        if key_pressed[key] == true then
-            play_key(note)    
+        if note.pressed == true then
+            play_key(note.note)    
             -- this avoids the keys repetition
-            key_pressed[key] = false 
+            note.pressed = false 
          end
     end
 end

@@ -1,5 +1,13 @@
 local keyboard = {}
 
+function key_get_note(id)
+    return keys[keys[id]].note
+end
+
+function key_check_pressed(id)
+    return keys[keys[id]].pressed
+end
+
 function keyboard.draw(dt)
     -- white_key options
     local white_key = {}
@@ -27,6 +35,16 @@ function keyboard.draw(dt)
             white_key.width, 
             white_key.height)
         love.graphics.setColor(1, 1 ,1, 1)
+    end
+    -- draw text over white keys
+    white_key.text_x = 15
+    white_key.text_y = 250
+    for i = 1, 7 do
+        love.graphics.setColor(0, 0, 0, 1)
+        love.graphics.print(
+            key_get_note(i), 
+            board.start_x + white_key.text_x + (white_key.width) * i, 
+            board.start_y + white_key.text_y)
     end
     
     -- first three
