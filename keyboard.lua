@@ -84,23 +84,23 @@ function keyboard.draw(dt)
     love.graphics.setColor(1, 1 ,1, 1)
     love.graphics.print("w", 287, 550) 
 
-    love.graphics.setColor(0, 0 ,0)
+    set_color_based_on_key_pressed(10, BLACK)
     love.graphics.rectangle("fill", 340, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)
     love.graphics.print("e", 354, 550)
 
     --three
-    love.graphics.setColor(0, 0 ,0)
+    set_color_based_on_key_pressed(11, BLACK)
     love.graphics.rectangle("fill", 425, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)  
     love.graphics.print("t", 440, 550)
     
-    love.graphics.setColor(0, 0 ,0)
+    set_color_based_on_key_pressed(12, BLACK)
     love.graphics.rectangle("fill", 483, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)
     love.graphics.print("y", 496, 550)
 
-    love.graphics.setColor(0, 0 ,0)
+    set_color_based_on_key_pressed(13, BLACK)
     love.graphics.rectangle("fill", 540, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)
     love.graphics.print("u", 554, 550)
