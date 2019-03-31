@@ -32,7 +32,7 @@ function love.load()
 end
 
 function play_key(note)
-    source = love.audio.newSource(note..".mp3", "static")
+    source = love.audio.newSource(note..".wav", "static")
     love.audio.play(source)
     --love.graphics.draw(resources.mario, math.random(0, 500), math.random(0, 500))
 end
