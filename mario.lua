@@ -2,9 +2,11 @@ local mario = {}
 
 mario.x = 100
 mario.y = 100
+
+speed = 100
+
 function love.load()
-	mario = love.graphics.newImage("mario.png")
-	
+	mario = love.graphics.newImage("mario.png")	
 end
 
 function mario.update(dt)

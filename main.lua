@@ -29,8 +29,6 @@ color = { 0, 1, 0 }
 
 resources = {}
 
-speed = 50
-
 success = love.window.setMode(800, 800, flags)
 
 function love.load()
@@ -63,7 +61,7 @@ end
     -- checks if a key is pressed and plays a note
     for key, note in pairs(keys) do
         if note.pressed == true then
-            play_key(note.note)    
+            play_key(note.note)
             -- this avoids the keys repetition
             note.pressed = false 
          end

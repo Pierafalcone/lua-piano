@@ -54,7 +54,7 @@ function keyboard.draw(dt)
     -- first three
     love.graphics.setColor(0, 0 ,0)
     love.graphics.rectangle("fill", 75, 450, 35, 200)
-    love.graphics.setColor(1, 1 ,1, 1)  
+    love.graphics.setColor(1, 1 ,1, 1) 
     
     love.graphics.setColor(0, 0 ,0)
     love.graphics.rectangle("fill", 133, 450, 35, 200)
@@ -68,23 +68,28 @@ function keyboard.draw(dt)
     love.graphics.setColor(0, 0 ,0)
     love.graphics.rectangle("fill", 275, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)
+    love.graphics.print("w", 287, 550) 
 
     love.graphics.setColor(0, 0 ,0)
     love.graphics.rectangle("fill", 340, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)
+    love.graphics.print("e", 354, 550)
 
     --three
     love.graphics.setColor(0, 0 ,0)
     love.graphics.rectangle("fill", 425, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)  
+    love.graphics.print("t", 440, 550)
     
     love.graphics.setColor(0, 0 ,0)
     love.graphics.rectangle("fill", 483, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)
+    love.graphics.print("y", 496, 550)
 
     love.graphics.setColor(0, 0 ,0)
     love.graphics.rectangle("fill", 540, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)
+    love.graphics.print("u", 554, 550)
 
     --two
     love.graphics.setColor(0, 0 ,0)
@@ -94,12 +99,6 @@ function keyboard.draw(dt)
     love.graphics.setColor(0, 0 ,0)
     love.graphics.rectangle("fill", 690, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)
-
-
-    -- PIERA: now you can draw black keys down here :)
-    -- if you cycle inside key_pressed you can check if a key is pressed or not
-    -- like this key_pressed.a or key_pressed[key] if you put in a loop
-
 end
 
 return keyboard
