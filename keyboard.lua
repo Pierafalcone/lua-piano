@@ -1,11 +1,15 @@
 local keyboard = {}
 
-function key_get_note(id)
+function get_note_by_id(id)
     return keys[keys[id]].note
 end
 
-function key_check_pressed(id)
+function check_pressed_by_id(id)
     return keys[keys[id]].pressed
+end
+
+function check_pressed_by_note(note)
+    return keys[note].pressed
 end
 
 function keyboard.draw(dt)
@@ -42,7 +46,7 @@ function keyboard.draw(dt)
     for i = 1, 7 do
         love.graphics.setColor(0, 0, 0, 1)
         love.graphics.print(
-            key_get_note(i), 
+            get_note_by_id(i), 
             board.start_x + white_key.text_x + (white_key.width) * i, 
             board.start_y + white_key.text_y)
     end
