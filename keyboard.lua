@@ -18,7 +18,7 @@ function check_pressed_by_note(note)
 end
 
 function set_color_based_on_key_pressed(id, default_color)
-    if check_pressed_by_id(9) == false then
+    if check_pressed_by_id(id) == false then
         love.graphics.setColor(default_color)
     else
         love.graphics.setColor(PRESSED_COLOR)
