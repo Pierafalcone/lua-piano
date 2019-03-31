@@ -7,6 +7,7 @@ keys = { "a", "s", "d", "f", "g", "h", "j", "k", "w", "e", "t", "y", "u" }
 for key, value in pairs(keys) do
     keys[value] = {}
     keys[value].pressed = false
+    keys[value].play = false
 end
 
 keys.a.note = "do"
@@ -60,10 +61,14 @@ end
     mario.update(dt)
     -- checks if a key is pressed and plays a note
     for key, note in pairs(keys) do
-        if note.pressed == true then
+        if note.pressed == true and note.play == false then
             play_key(note.note)
             -- this avoids the keys repetition
-            note.pressed = false 
+            note.play = true
+         end
+         -- reset play state
+         if note.pressed == false and note.play == true then
+            note.play = false
          end
     end
 end

@@ -1,5 +1,10 @@
 local keyboard = {}
 
+-- keys colors
+local PRESSED_COLOR = { 1, 0, 0 }
+local WHITE = { 1, 1, 1 }
+local BLACK = { 0, 0, 0 }
+
 function get_note_by_id(id)
     return keys[keys[id]].note
 end
@@ -10,6 +15,14 @@ end
 
 function check_pressed_by_note(note)
     return keys[note].pressed
+end
+
+function set_color_based_on_key_pressed(id, default_color)
+    if check_pressed_by_id(9) == false then
+        love.graphics.setColor(default_color)
+    else
+        love.graphics.setColor(PRESSED_COLOR)
+    end
 end
 
 function keyboard.draw(dt)
@@ -53,6 +66,7 @@ function keyboard.draw(dt)
     
     -- first three
     love.graphics.setColor(0, 0 ,0)
+    love.graphics.setColor(0, 0 ,0)
     love.graphics.rectangle("fill", 75, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1) 
     
@@ -65,7 +79,7 @@ function keyboard.draw(dt)
     love.graphics.setColor(1, 1 ,1, 1)
 
     --two
-    love.graphics.setColor(0, 0 ,0)
+    set_color_based_on_key_pressed(9, BLACK)
     love.graphics.rectangle("fill", 275, 450, 35, 200)
     love.graphics.setColor(1, 1 ,1, 1)
     love.graphics.print("w", 287, 550) 
