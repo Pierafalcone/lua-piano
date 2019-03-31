@@ -11,10 +11,15 @@ keys.g = "sol"
 keys.h = "la"
 keys.j = "si"
 keys.k = "doa"
+keys.w = "C#3"
+keys.e = "D#3"
+keys.t = "F#3"
+keys.y = "G#3"
+keys.u = "A#3"
 
 key_pressed = {}
 
-color = { 0, 0, 0 }
+color = { 0, 1, 0 }
 
 resources = {}
 
@@ -31,10 +36,9 @@ function love.load()
     end
 end
 
-function play_key(note)
+function play_key(note)   
     source = love.audio.newSource(note..".wav", "static")
     love.audio.play(source)
-    --love.graphics.draw(resources.mario, math.random(0, 500), math.random(0, 500))
 end
 
 function love.keypressed(key)
