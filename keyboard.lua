@@ -41,12 +41,12 @@ function keyboard.draw(dt)
         love.graphics.setColor(1, 1 ,1, 1)
     end
     -- draw text over white keys
-    white_key.text_x = 15
+    white_key.text_x = 21 + (white_key.width * 4)
     white_key.text_y = 250
-    for i = 1, 7 do
+    for i = 1, 8 do
         love.graphics.setColor(0, 0, 0, 1)
         love.graphics.print(
-            get_note_by_id(i), 
+            keys[i], 
             board.start_x + white_key.text_x + (white_key.width) * i, 
             board.start_y + white_key.text_y)
     end
