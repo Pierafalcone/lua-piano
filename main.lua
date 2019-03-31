@@ -48,6 +48,7 @@ end
 
  function love.update(dt)
     mario.update(dt)
+    -- checks if a key is pressed and plays a note
     for key, note in pairs(keys) do
         if key_pressed[key] == true then
             play_key(note)    

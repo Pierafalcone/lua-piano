@@ -22,6 +22,8 @@ function keyboard.draw(dt)
 
     -- PIERA: now you can draw black keys down here :)
     -- if you cycle inside key_pressed you can check if a key is pressed or not
+    -- like this key_pressed.a or key_pressed[key] if you put in a loop
+
 end
 
 return keyboard
